@@ -1,9 +1,11 @@
 package com.codingshuttle.youtube.learningSpringBootApp;
 
 import io.micrometer.observation.annotation.ObservationKeyValue;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnProperty(name = "payment.provider", havingValue = "stripe")
 public class StripePaymentService implements PaymentService {
 
     @Override
